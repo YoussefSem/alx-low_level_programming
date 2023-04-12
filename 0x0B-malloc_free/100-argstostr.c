@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
- * _strlen - It isn't the mountains ahead to climb that wear you out
- * it is the pebble in your shoe
+ * _strlen - returns the length of a string.
+ * @s: string
  * Return: length
  */
 
@@ -19,8 +19,8 @@ int _strlen(char *s)
 }
 
 /**
- * argstostr - function that concatenates all
- * the arguments of your program.
+ * argstostr - It isn't the mountains ahead to climb that wear you out
+ * it's the pebble in your shoe
  * @ac: argc
  * @av: arguments
  * Return: pointer to array

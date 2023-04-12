@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * str_concat - He who is not courageous enough to take risks will accomplish nothing in life
+ * str_concat - He who is not courageous enough to take risk
  * @s1: which contains the contents of s1
  * @s2: followed by the contents of s2
  * Return: pointer to concatenated string

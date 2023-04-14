@@ -2,27 +2,44 @@
 #include "main.h"
 
 /**
- * array_range - function that reallocates a memory block using malloc and free
- * @min: start range from
- * @max: end range at
- * Return: pointer to array
+ * _realloc - function that reallocates a memory block
+ * using malloc and free.
+ * @ptr: pointer to the memory previously allocated (malloc(old_size))
+ * @old_size: size previously allocated
+ * @new_size: new size to reallocate
+ * Return: pointer to reallocated memory
  */
 
-int *array_range(int min, int max)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int *ptr;
-	int i;
-	int n = (max - min + 1);
+	void *p;
+	unsigned int i;
 
-	if (min > max)
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
 		return (NULL);
+	}
 
-	ptr = malloc(sizeof(int) * n);
+	if (new_size == old_size)
+		return (ptr);
+
 	if (ptr == NULL)
+	{
+		p = malloc(new_size);
+		if (p == NULL)
+			return (NULL);
+		else
+			return (p);
+	}
+
+	p = malloc(new_size);
+	if (p == NULL)
 		return (NULL);
 
-	for (i = 0; i < n; i++)
-		ptr[i] = min++;
+	for (i = 0; i < old_size && i < new_size; i++)
+		*((char *)p + i) = *((char *)ptr + i);
+	free(ptr);
 
-	return (ptr);
+	return (p);
 }

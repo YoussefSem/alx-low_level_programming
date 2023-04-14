@@ -1,29 +1,54 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * array_range - function that reallocates a memory block using malloc and free
- * @min: start range from
- * @max: end range at
- * Return: pointer to array
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
  */
-
-int *array_range(int min, int max)
+void simple_print_buffer(char *buffer, unsigned int size)
 {
-	int *ptr;
-	int i;
-	int n = (max - min + 1);
+    unsigned int i;
 
-	if (min > max)
-		return (NULL);
-
-	ptr = malloc(sizeof(int) * n);
-	if (ptr == NULL)
-		return (NULL);
-
-	for (i = 0; i < n; i++)
-		ptr[i] = min++;
-
-	return (ptr);
+    i = 0;
+    while (i < size)
+    {
+        if (i % 10)
+        {
+            printf(" ");
+        }
+        if (!(i % 10) && i)
+        {
+            printf("\n");
+        }
+        printf("0x%02x", buffer[i]);
+        i++;
+    }
+    printf("\n");
 }
 
+/**
+ * main - check the code for
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char *p;
+    int i;
+
+    p = malloc(sizeof(char) * 10);
+    p = _realloc(p, sizeof(char) * 10, sizeof(char) * 98);
+    i = 0;
+    while (i < 98)
+    {
+        p[i++] = 98;
+    }
+    simple_print_buffer(p, 98);
+    free(p);
+    return (0);
+}

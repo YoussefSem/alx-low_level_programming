@@ -3,7 +3,7 @@
 #include "3-calc.h"
 
 /**
- * main - This file should contain my main function only.
+ * main - This file should contain your main function only.
  * user should give two integers and an operator and
  * main will calculate the math via a function pointer.
  * prints sum, difference, product, dividend, or remainder

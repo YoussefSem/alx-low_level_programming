@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "3-calc.h"
 
-i/**
- * get_op_func - function to select correct operation asked
+/**
+ * get_op_func - function to select correct operation function asked by the user
  * @s: operation given (+, *, -, /, %)
  * Return: pointer to correct operation function (0-4)
  */

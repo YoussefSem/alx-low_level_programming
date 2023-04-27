@@ -2,10 +2,10 @@
 
 /**
  * list_len - List length
- * Write a function that returns.
- *the number of elements in a linked list_t list.
+ * Write a function that returns the number of elements
+ * @h: linked list
  * Return: number of nodes/elements (length) in linked list
- 
+ */
 
 size_t list_len(const list_t *h)
 {

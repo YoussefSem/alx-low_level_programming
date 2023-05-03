@@ -1,29 +1,38 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * print_listint_safe - a function that prints a listint_t linked list.
- * @head: list of type listint_t to print
+ * main - check the code
  *
- * Return: number of nodes in the list
+ * Return: Always 0.
  */
-size_t print_listint_safe(const listint_t *head)
+int main(void)
 {
-    size_t num = 0;
-    long int diff;
+    listint_t *head;
+    listint_t *head2;
+    listint_t *node;
 
-    while (head)
-    {
-        diff = head - head->next;
-        num++;
-        printf("[%p] %d\n", (void *)head, head->n);
-        if (diff > 0)
-            head = head->next;
-        else
-        {
-            printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-            break;
-        }
-    }
-
-    return (num);
+    head2 = NULL;
+    add_nodeint(&head2, 0);
+    add_nodeint(&head2, 1);
+    add_nodeint(&head2, 2);
+    add_nodeint(&head2, 3);
+    add_nodeint(&head2, 4);
+    add_nodeint(&head2, 98);
+    add_nodeint(&head2, 402);
+    add_nodeint(&head2, 1024);
+    print_listint_safe(head2);
+    head = NULL;
+    node = add_nodeint(&head, 0);
+    add_nodeint(&head, 1);
+    add_nodeint(&head, 2);
+    add_nodeint(&head, 3);
+    add_nodeint(&head, 4);
+    node->next = add_nodeint(&head, 98);
+    add_nodeint(&head, 402);
+    add_nodeint(&head, 1024);
+    print_listint_safe(head);
+    return (0);
 }
